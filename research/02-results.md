@@ -148,3 +148,16 @@ SCNet-L preferred 10, htdemucs 6, no difference 10. By stem: drums 6-2 for SCNet
 The SDR of each system on the exact 12 s heard is in `listening_clip_sdr.json`. Mean SDR gain of SCNet-L (dB): trials where SCNet-L was preferred +2.3, htdemucs preferred -1.1, no difference +2.65. So gains of 2 to 5 dB on a single stem were often inaudible to this listener on 12 s clips, while the two large losses (Skelpolu vocals -10.6 dB, PR - Oh No vocals -3.2 dB) were heard. 12 of 16 decisive choices went to the higher-SDR system. Disagreements: Tom McKenzie instrumental (+4.5 dB, htdemucs preferred), Raft Monk instrumental (+1.3 dB, htdemucs preferred).
 
 Reading: the average MUSDB gain of about 0.9 dB (9.27 against 8.36) is probably below what a listener notices. What users would notice are failure cases, and SCNet-L has worse ones than htdemucs on electronic material (a drum & bass track and one other electronic track in these clips). One listener, 12 s excerpts, 26 trials: a signal, not a result.
+
+## SCNet XL IHF by chunk length (PyTorch, `src/sweep_scnet_l.py --no-normalise`)
+
+XL IHF's config says `normalize: false`; the first run of this sweep standardised the mixture by mistake and scored 6.87, 7.63 and 7.92 at 2.75, 4.1 and 5.5 s (invalid). Corrected, hop 0.75 except the last row:
+
+| Chunk | vocals | drums | bass | other | average | ONNX Runtime peak memory, one chunk |
+|---|---|---|---|---|---|---|
+| 2.75 s | 10.48 | 10.44 | 7.82 | 6.70 | 8.86 | 1.75 GB |
+| 4.1 s | 10.84 | 10.91 | 8.29 | 7.15 | 9.30 | 2.45 GB |
+| 5.5 s | 11.00 | 11.14 | 8.54 | 7.36 | 9.51 | 3.20 GB |
+| 11 s, hop 0.5 | 11.29 | 11.61 | 9.03 | 7.70 | 9.91 | 5.9 GB |
+
+ONNX Runtime options on the 5.5 s graph: prepacking off 3.11 GB, basic graph optimisation 3.12 GB, both 3.05 GB. See `docs/high-quality-mode.md`.

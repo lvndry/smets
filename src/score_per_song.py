@@ -23,9 +23,9 @@ def read(path):
     return torch.from_numpy(audio.T)
 
 
-def separate_scnet(network, mixture, chunk_samples, overlap, device, step_samples=None):
+def separate_scnet(network, mixture, chunk_samples, overlap, device, step_samples=None, normalise=True):
     mono = mixture.mean(0)
-    mean, deviation = mono.mean(), mono.std()
+    mean, deviation = (mono.mean(), mono.std()) if normalise else (torch.tensor(0.0), torch.tensor(1.0))
     normalised = (mixture - mean) / deviation
     frames = normalised.shape[-1]
     step = step_samples or chunk_samples // overlap

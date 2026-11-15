@@ -22,18 +22,23 @@ def main():
     parser.add_argument("--config", required=True)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--no-normalise", action="store_true")
+    parser.add_argument("--configurations", default=None, help="comma separated chunk_samples:hop_fraction pairs")
     arguments = parser.parse_args()
 
     device = "cuda"
     network = load_scnet(arguments.zfturbo_directory, arguments.config, arguments.checkpoint, device)
     songs = sorted(glob.glob(os.path.join(arguments.test_root, "*")))
     results = []
-    for configuration in CONFIGURATIONS:
+    configurations = CONFIGURATIONS
+    if arguments.configurations:
+        configurations = [{"chunk": int(pair.split(":")[0]), "step_fraction": float(pair.split(":")[1])} for pair in arguments.configurations.split(",")]
+    for configuration in configurations:
         step_samples = int(configuration["chunk"] * configuration["step_fraction"])
         per_song = {}
         for directory in songs:
             mixture = read(os.path.join(directory, "mixture.wav"))
-            estimate = separate_scnet(network, mixture, configuration["chunk"], 1, device, step_samples)
+            estimate = separate_scnet(network, mixture, configuration["chunk"], 1, device, step_samples, not arguments.no_normalise)
             scores = {}
             for index, name in enumerate(SCNET_ORDER):
                 scores[name] = stem_sdr(estimate[index], read(os.path.join(directory, name + ".wav")))

@@ -62,7 +62,7 @@ The exported graph covers everything between the STFT and the inverse STFT. The 
 
 Pre- and post-processing, all in the runtime:
 
-1. Standardise the mixture: subtract the mean of the mono mix and divide by its standard deviation (sample standard deviation). Undo it on the outputs. Skipping this costs about 0.4 dB.
+1. Standardise the mixture: subtract the mean of the mono mix and divide by its standard deviation (sample standard deviation). Undo it on the outputs. Skipping this costs about 0.4 dB for SCNet-S and SCNet-L. This is a per-checkpoint setting (`normalize` in the checkpoint's config): SCNet XL IHF uses `false`, and standardising its input costs about 1.6 dB. `smets` has `--no-normalise`.
 2. Chunk with the chosen overlap (hop N divided by the overlap), pad the last chunk with zeros, blend chunk outputs with a non-periodic Hann window clamped at 1e-3 and divide by the summed window.
 3. For each chunk and channel: append `padding` zeros, then take the STFT with FFT size 4096, hop 1024, rectangular window, centred with reflect padding, scaled by 1/sqrt(4096), one-sided.
 4. Run the graph. Inverse STFT with the same parameters (rectangular window, divide by the overlap count, scale to undo the forward normalisation), then drop the padding.

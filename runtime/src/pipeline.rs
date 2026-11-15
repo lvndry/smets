@@ -116,9 +116,9 @@ impl Separator {
         Ok(stems)
     }
 
-    pub fn separate(&mut self, left: &[f32], right: &[f32], hop_fraction: f64) -> Result<StemAudio, Box<dyn Error>> {
+    pub fn separate(&mut self, left: &[f32], right: &[f32], hop_fraction: f64, normalise: bool) -> Result<StemAudio, Box<dyn Error>> {
         let frames = left.len();
-        let (mean, deviation) = mean_and_deviation(left, right);
+        let (mean, deviation) = if normalise { mean_and_deviation(left, right) } else { (0.0, 1.0) };
         let normalise = |channel: &[f32]| -> Vec<f32> {
             channel.iter().map(|value| ((*value as f64 - mean) / deviation) as f32).collect()
         };
