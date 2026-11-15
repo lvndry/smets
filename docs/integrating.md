@@ -42,6 +42,12 @@ What this does not show:
 - MUSDB only. The checkpoints appear to have been picked as the best epoch on MUSDB test, so the scores are probably slightly optimistic. SCNet-L's published figure is 9.70 with 4x overlap and 11 s chunks; the 9.62 here is the same checkpoint at 2x.
 - Fine-tuning SCNet-S on extra data (pseudo-labelled FMA clips, Slakh) did not beat the untouched weights in any run, so there is no model of our own yet.
 
+## Assessment
+
+The measured gain is real on MUSDB (about +0.9 dB average for SCNet-L at 5.5 s chunks and 25% overlap, 42 of 50 songs better) but a blind listening test with 26 trials from one listener did not show a clear audible improvement: 10 preferred SCNet-L, 6 htdemucs, 10 no difference. SDR differences of 2 to 5 dB on a single stem were often not heard. The two large losses, on a drum & bass track and one other song, were heard and went to htdemucs. Electronic material, the main DJ genre, gains least on the metric and was mixed in the listening trials.
+
+On this evidence SCNet-L is a modest improvement with a few worse failure cases, not a clear replacement. It costs about 0.4 GB more memory unless output is streamed, plus the integration work. A decision to adopt would need more listening trials on electronic material and a check of those failure cases. `research/02-results.md` has the details.
+
 ## Licence
 
 The SCNet code is MIT. The weights were trained on MUSDB18-HQ, whose audio is research-only, and no weights licence is stated by the authors. The SCNet-L checkpoint may also have used another dataset; that is unverified. This is the same situation as htdemucs, whose README says the licence of its weights is not clear. A clean-licence retrain is not started.

@@ -140,3 +140,11 @@ Electronic is the weakest genre for the gain, which matters for a DJ application
 `src/make_listening_clips.py` and `src/make_listening_page.py` build a local blind A/B page (36 trials: 12 clips of 12 s, each for vocals, instrumental and drums, htdemucs against SCNet-L at 5.5 s and hop 0.75, order randomised). The audio is MUSDB (research-only) and stays in the git-ignored `listening-test/` folder. No results yet.
 
 Partial result, 6 of 36 trials answered by one listener: SCNet-L preferred 4, htdemucs 1, no difference 1 (drums 2-0, instrumental 1-0 with one tie, vocals 1-1). The htdemucs win was vocals on "PR - Oh No", a song where SCNet-L also scored lower on the metric at no overlap. Far too few trials to conclude; none of the six were electronic or drum & bass.
+
+### Listening test, 26 of 36 trials, one listener
+
+SCNet-L preferred 10, htdemucs 6, no difference 10. By stem: drums 6-2 for SCNet-L, instrumental 3-2 with 4 ties, vocals 1-2 with 6 ties. Among the 16 decisive trials, 10-6 is not statistically distinguishable from chance (two-sided p about 0.45). Electronic trials (7): SCNet-L 2 (both drums), htdemucs 3, no difference 2.
+
+The SDR of each system on the exact 12 s heard is in `listening_clip_sdr.json`. Mean SDR gain of SCNet-L (dB): trials where SCNet-L was preferred +2.3, htdemucs preferred -1.1, no difference +2.65. So gains of 2 to 5 dB on a single stem were often inaudible to this listener on 12 s clips, while the two large losses (Skelpolu vocals -10.6 dB, PR - Oh No vocals -3.2 dB) were heard. 12 of 16 decisive choices went to the higher-SDR system. Disagreements: Tom McKenzie instrumental (+4.5 dB, htdemucs preferred), Raft Monk instrumental (+1.3 dB, htdemucs preferred).
+
+Reading: the average MUSDB gain of about 0.9 dB (9.27 against 8.36) is probably below what a listener notices. What users would notice are failure cases, and SCNet-L has worse ones than htdemucs on electronic material (a drum & bass track and one other electronic track in these clips). One listener, 12 s excerpts, 26 trials: a signal, not a result.

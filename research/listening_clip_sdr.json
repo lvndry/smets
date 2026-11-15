@@ -1,0 +1,146 @@
+{
+ "PR - Happy Daze|vocals": {
+  "candidate": 3.7779738903045654,
+  "htdemucs": 1.487060785293579
+ },
+ "PR - Happy Daze|instrumental": {
+  "candidate": 27.13397216796875,
+  "htdemucs": 24.855152130126953
+ },
+ "PR - Happy Daze|drums": {
+  "candidate": 8.010541915893555,
+  "htdemucs": 17.280004501342773
+ },
+ "PR - Oh No|vocals": {
+  "candidate": 2.4961392879486084,
+  "htdemucs": 5.6557698249816895
+ },
+ "PR - Oh No|instrumental": {
+  "candidate": 8.866271018981934,
+  "htdemucs": 8.873101234436035
+ },
+ "PR - Oh No|drums": {
+  "candidate": 8.136271476745605,
+  "htdemucs": 6.666933059692383
+ },
+ "Skelpolu - Resurrection|vocals": {
+  "candidate": -79.7867660522461,
+  "htdemucs": -69.17440795898438
+ },
+ "Skelpolu - Resurrection|instrumental": {
+  "candidate": 39.51255416870117,
+  "htdemucs": 36.31637191772461
+ },
+ "Skelpolu - Resurrection|drums": {
+  "candidate": 18.399293899536133,
+  "htdemucs": 18.600570678710938
+ },
+ "Arise - Run Run Run|vocals": {
+  "candidate": 16.39077377319336,
+  "htdemucs": 11.656352996826172
+ },
+ "Arise - Run Run Run|instrumental": {
+  "candidate": 23.431316375732422,
+  "htdemucs": 18.58495330810547
+ },
+ "Arise - Run Run Run|drums": {
+  "candidate": 7.547428131103516,
+  "htdemucs": -4.147609233856201
+ },
+ "Lyndsey Ollard - Catching Up|vocals": {
+  "candidate": 19.674543380737305,
+  "htdemucs": 15.779525756835938
+ },
+ "Lyndsey Ollard - Catching Up|instrumental": {
+  "candidate": 14.116769790649414,
+  "htdemucs": 10.246223449707031
+ },
+ "Lyndsey Ollard - Catching Up|drums": {
+  "candidate": -0.7850129008293152,
+  "htdemucs": -0.7590988874435425
+ },
+ "Tom McKenzie - Directions|vocals": {
+  "candidate": 19.788209915161133,
+  "htdemucs": 15.191671371459961
+ },
+ "Tom McKenzie - Directions|instrumental": {
+  "candidate": 25.711654663085938,
+  "htdemucs": 21.249563217163086
+ },
+ "Tom McKenzie - Directions|drums": {
+  "candidate": 19.60948371887207,
+  "htdemucs": 18.208606719970703
+ },
+ "Georgia Wonder - Siren|vocals": {
+  "candidate": 11.229532241821289,
+  "htdemucs": 9.933552742004395
+ },
+ "Georgia Wonder - Siren|instrumental": {
+  "candidate": 17.640621185302734,
+  "htdemucs": 16.100866317749023
+ },
+ "Georgia Wonder - Siren|drums": {
+  "candidate": 13.259218215942383,
+  "htdemucs": 11.929546356201172
+ },
+ "AM Contra - Heart Peripheral|vocals": {
+  "candidate": 12.654541015625,
+  "htdemucs": 11.048079490661621
+ },
+ "AM Contra - Heart Peripheral|instrumental": {
+  "candidate": 16.32010841369629,
+  "htdemucs": 14.69453239440918
+ },
+ "AM Contra - Heart Peripheral|drums": {
+  "candidate": 11.250064849853516,
+  "htdemucs": 7.538344383239746
+ },
+ "Buitraker - Revo X|vocals": {
+  "candidate": 11.534099578857422,
+  "htdemucs": 9.29674243927002
+ },
+ "Buitraker - Revo X|instrumental": {
+  "candidate": 23.698835372924805,
+  "htdemucs": 21.337697982788086
+ },
+ "Buitraker - Revo X|drums": {
+  "candidate": 18.90996742248535,
+  "htdemucs": 17.84125328063965
+ },
+ "Raft Monk - Tiring|vocals": {
+  "candidate": 5.408398628234863,
+  "htdemucs": 4.157571315765381
+ },
+ "Raft Monk - Tiring|instrumental": {
+  "candidate": 13.27242660522461,
+  "htdemucs": 11.961564064025879
+ },
+ "Raft Monk - Tiring|drums": {
+  "candidate": 11.3340482711792,
+  "htdemucs": 10.449785232543945
+ },
+ "Cristina Vane - So Easy|vocals": {
+  "candidate": 19.789608001708984,
+  "htdemucs": 16.420169830322266
+ },
+ "Cristina Vane - So Easy|instrumental": {
+  "candidate": 24.769248962402344,
+  "htdemucs": 21.128459930419922
+ },
+ "Cristina Vane - So Easy|drums": {
+  "candidate": 18.317718505859375,
+  "htdemucs": 16.504297256469727
+ },
+ "Al James - Schoolboy Facination|vocals": {
+  "candidate": 10.782636642456055,
+  "htdemucs": 9.086665153503418
+ },
+ "Al James - Schoolboy Facination|instrumental": {
+  "candidate": 11.991989135742188,
+  "htdemucs": 10.237146377563477
+ },
+ "Al James - Schoolboy Facination|drums": {
+  "candidate": 6.974764823913574,
+  "htdemucs": 6.607758522033691
+ }
+}
