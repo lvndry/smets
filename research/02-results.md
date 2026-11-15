@@ -138,3 +138,5 @@ Electronic is the weakest genre for the gain, which matters for a DJ application
 ## Listening test
 
 `src/make_listening_clips.py` and `src/make_listening_page.py` build a local blind A/B page (36 trials: 12 clips of 12 s, each for vocals, instrumental and drums, htdemucs against SCNet-L at 5.5 s and hop 0.75, order randomised). The audio is MUSDB (research-only) and stays in the git-ignored `listening-test/` folder. No results yet.
+
+Partial result, 6 of 36 trials answered by one listener: SCNet-L preferred 4, htdemucs 1, no difference 1 (drums 2-0, instrumental 1-0 with one tie, vocals 1-1). The htdemucs win was vocals on "PR - Oh No", a song where SCNet-L also scored lower on the metric at no overlap. Far too few trials to conclude; none of the six were electronic or drum & bass.
