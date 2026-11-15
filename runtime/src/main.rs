@@ -2,8 +2,8 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 use clap::Parser;
-use stems_runtime::audio::{read_stereo, write_stereo};
-use stems_runtime::{STEM_NAMES, Separator};
+use smets::audio::{read_stereo, write_stereo};
+use smets::{STEM_NAMES, Separator};
 
 #[derive(Parser)]
 #[command(about = "Separate a 44.1 kHz stereo WAV file into drums, bass, other and vocals")]

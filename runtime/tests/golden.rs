@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
-use stems_runtime::audio::read_stereo;
-use stems_runtime::{STEM_NAMES, Separator};
+use smets::audio::read_stereo;
+use smets::{STEM_NAMES, Separator};
 
 fn signal_to_error_db(estimate: &[f32], expected: &[f32]) -> f64 {
     let signal: f64 = expected.iter().map(|value| (*value as f64).powi(2)).sum();
