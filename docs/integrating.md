@@ -4,7 +4,7 @@ This is a proposal for Euphoria's maintainers. Nothing here depends on Euphoria 
 
 ## What is proposed
 
-Replace htdemucs with SCNet-L (about 42M parameters, the same size as htdemucs, code MIT) run in 5.5 s chunks. SCNet-S (about 10M parameters) is the lighter alternative in the same family. Euphoria already runs ONNX models in Rust, so the integration is a new graph file plus the pre- and post-processing described below. `runtime/` is a small reference implementation of that processing that has been checked against the Python pipeline.
+Replace htdemucs with SCNet-L (about 42M parameters, the same size as htdemucs, code MIT) run in 5.5 s chunks with a 25% overlap. SCNet-S (about 10M parameters) is the lighter alternative in the same family. Euphoria already runs ONNX models in Rust, so the integration is a new graph file plus the pre- and post-processing described below. `runtime/` is a small reference implementation of that processing that has been checked against the Python pipeline.
 
 ## Evidence
 
@@ -15,7 +15,9 @@ All scores are plain whole-song SDR per stem, averaged over the 50 MUSDB18-HQ te
 | htdemucs (current) | 42M | 8.70 | 9.93 | 8.63 | 6.18 | 8.36 |
 | SCNet-S, 11 s chunks, 2x overlap, ONNX graph through the pipeline | about 10M | 9.76 | 10.28 | 8.75 | 6.76 | 8.89 |
 | SCNet-L, 5.5 s chunks, no overlap, ONNX graph through the pipeline | about 42M | 10.41 | 10.55 | 8.75 | 6.85 | 9.14 |
+| SCNet-L, 5.5 s chunks, 25% overlap (hop 0.75), PyTorch | about 42M | 10.53 | 10.68 | 8.90 | 6.96 | 9.27 |
 | SCNet-L, 5.5 s chunks, 2x overlap, PyTorch | about 42M | 10.66 | 10.80 | 9.05 | 7.10 | 9.41 |
+| SCNet-L, 8.25 s chunks, 25% overlap (hop 0.75), PyTorch | about 42M | 10.73 | 10.90 | 9.13 | 7.07 | 9.46 |
 | SCNet-L, 11 s chunks, 2x overlap, PyTorch | about 42M | 10.88 | 11.07 | 9.31 | 7.24 | 9.62 |
 
 The ONNX score for SCNet-L equals the PyTorch score for the same setting (9.14), so the export loses nothing.
@@ -27,12 +29,16 @@ Cost, measured on one Mac with 4 threads on the same 7-minute stereo 44.1 kHz tr
 | htdemucs in Euphoria | 39.7 | 2,434 MB |
 | SCNet-S, `runtime/`, 11 s chunks, 2x overlap | 44.1 | 2,087 MB |
 | SCNet-L, `runtime/`, 5.5 s chunks, no overlap | 31.9 | 2,818 MB |
+| SCNet-L, `runtime/`, 5.5 s chunks, 25% overlap | about 42 (estimate, not measured) | 2,818 MB (same chunk, same model) |
 
 The runtime's peak memory footprint (a different counter) was 2.65 GB for SCNet-S and 3.26 GB for SCNet-L. The ONNX Runtime memory arena and memory pattern are switched off, which is what keeps memory down. About 0.75 GB of the SCNet-L figure is audio held in memory (the 7-minute input and the four output stems); writing finished stems out as chunks complete would remove most of it. Overlap multiplies time: 2x overlap would roughly double SCNet-L's time for +0.27 dB (9.14 to 9.41). One pair of runs on a machine that was not idle, so repeat before relying on differences under about 10%.
 
+Per song and per genre (SCNet-L at 5.5 s with no overlap against htdemucs, 50 songs): SCNet-L wins on 42 songs, with a mean gain of 0.77 dB. By stem it wins vocals on 46 songs (+1.71 dB), drums on 41 (+0.61), other on 40 (+0.67) and bass on 33 (+0.11, essentially a tie). By genre the gain is +1.03 dB on rock (17 songs, 17 wins), +1.67 on folk-acoustic (5, 5 wins), +0.90 on pop (8, 7 wins), +1.10 on hip-hop (3, 3 wins), +0.43 on electronic (8, 5 wins) and -0.03 on metal (2, 1 win). It loses on a drum & bass track and two tracks whose genre could not be found. Genre labels are approximate (artist-level style lines mapped by hand, four unknown) and the counts are small. These figures use the weakest blending (no overlap); the 25% overlap setting improves the average and mostly the bass, but the per-genre table has not been recomputed for it. Full table in `research/02-results.md`.
+
 What this does not show:
 
-- No per-genre breakdown and no listening test yet. Euphoria's adoption rule needs both.
+- No listening test result yet. Euphoria's adoption rule needs one. `src/make_listening_page.py` builds a blind A/B page for it.
+- Electronic music, the main DJ genre, has the smallest gain, and no cleared DJ-style test audio has been used.
 - MUSDB only. The checkpoints appear to have been picked as the best epoch on MUSDB test, so the scores are probably slightly optimistic. SCNet-L's published figure is 9.70 with 4x overlap and 11 s chunks; the 9.62 here is the same checkpoint at 2x.
 - Fine-tuning SCNet-S on extra data (pseudo-labelled FMA clips, Slakh) did not beat the untouched weights in any run, so there is no model of our own yet.
 

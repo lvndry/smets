@@ -18,7 +18,7 @@ fn matches_the_python_pipeline() {
     let golden = PathBuf::from(golden);
     let [left, right] = read_stereo(&golden.join("excerpt.wav")).unwrap();
     let mut separator = Separator::load(&PathBuf::from(model), 8, DEFAULT_CHUNK_SAMPLES).unwrap();
-    let stems = separator.separate(&left, &right, 2).unwrap();
+    let stems = separator.separate(&left, &right, 0.5).unwrap();
     for (name, channels) in STEM_NAMES.iter().zip(stems.iter()) {
         let [expected_left, expected_right] = read_stereo(&golden.join(format!("expected_{name}.wav"))).unwrap();
         let left_db = signal_to_error_db(&channels[0], &expected_left);

@@ -39,8 +39,8 @@ fn blending_window(chunk_samples: usize) -> Vec<f32> {
         .collect()
 }
 
-fn chunk_starts(frames: usize, overlap: usize, chunk_samples: usize) -> Vec<usize> {
-    let step = chunk_samples / overlap;
+fn chunk_starts(frames: usize, hop_fraction: f64, chunk_samples: usize) -> Vec<usize> {
+    let step = ((chunk_samples as f64 * hop_fraction) as usize).max(1);
     let mut starts: Vec<usize> = (0..=frames.saturating_sub(chunk_samples)).step_by(step).collect();
     if let Some(last) = starts.last() {
         if last + chunk_samples < frames {
@@ -116,7 +116,7 @@ impl Separator {
         Ok(stems)
     }
 
-    pub fn separate(&mut self, left: &[f32], right: &[f32], overlap: usize) -> Result<StemAudio, Box<dyn Error>> {
+    pub fn separate(&mut self, left: &[f32], right: &[f32], hop_fraction: f64) -> Result<StemAudio, Box<dyn Error>> {
         let frames = left.len();
         let (mean, deviation) = mean_and_deviation(left, right);
         let normalise = |channel: &[f32]| -> Vec<f32> {
@@ -127,7 +127,7 @@ impl Separator {
         let window = blending_window(chunk_samples);
         let mut output: StemAudio = (0..4).map(|_| [vec![0.0f32; frames], vec![0.0f32; frames]]).collect();
         let mut weight = vec![0.0f32; frames];
-        for start in chunk_starts(frames, overlap, chunk_samples) {
+        for start in chunk_starts(frames, hop_fraction, chunk_samples) {
             let length = chunk_samples.min(frames - start);
             let chunk: [Vec<f32>; 2] = [
                 normalised[0][start..start + length].to_vec(),

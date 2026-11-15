@@ -1,0 +1,1202 @@
+[
+ {
+  "song": "AM Contra - Heart Peripheral",
+  "model": "htdemucs",
+  "vocals": 11.450719833374023,
+  "drums": 8.255743980407715,
+  "bass": -1.327168196439743,
+  "other": 0.47421805560588837
+ },
+ {
+  "song": "AM Contra - Heart Peripheral",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 12.397021055221558,
+  "drums": 9.391436576843262,
+  "bass": -0.2601226419210434,
+  "other": 1.0158126056194305
+ },
+ {
+  "song": "AM Contra - Heart Peripheral",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.732946872711182,
+  "drums": 9.34699535369873,
+  "bass": -0.3972518816590309,
+  "other": 0.8262597769498825
+ },
+ {
+  "song": "Al James - Schoolboy Facination",
+  "model": "htdemucs",
+  "vocals": 7.395156621932983,
+  "drums": 6.883071064949036,
+  "bass": 10.200650691986084,
+  "other": 3.3642014861106873
+ },
+ {
+  "song": "Al James - Schoolboy Facination",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 8.56126844882965,
+  "drums": 6.684185862541199,
+  "bass": 10.501794815063477,
+  "other": 4.358363747596741
+ },
+ {
+  "song": "Al James - Schoolboy Facination",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 9.301608800888062,
+  "drums": 7.1269917488098145,
+  "bass": 10.812878608703613,
+  "other": 4.815076589584351
+ },
+ {
+  "song": "Angels In Amplifiers - I'm Alright",
+  "model": "htdemucs",
+  "vocals": 11.087629795074463,
+  "drums": 7.315828204154968,
+  "bass": 10.473278760910034,
+  "other": 8.432176113128662
+ },
+ {
+  "song": "Angels In Amplifiers - I'm Alright",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 11.805000305175781,
+  "drums": 8.078323602676392,
+  "bass": 9.505648612976074,
+  "other": 8.762152194976807
+ },
+ {
+  "song": "Angels In Amplifiers - I'm Alright",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.561248540878296,
+  "drums": 8.38137149810791,
+  "bass": 9.542738199234009,
+  "other": 9.163593649864197
+ },
+ {
+  "song": "Arise - Run Run Run",
+  "model": "htdemucs",
+  "vocals": 11.669024229049683,
+  "drums": -3.332325518131256,
+  "bass": 7.797141671180725,
+  "other": 0.8787191659212112
+ },
+ {
+  "song": "Arise - Run Run Run",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 14.785611629486084,
+  "drums": 0.6560494750738144,
+  "bass": 6.905570030212402,
+  "other": 3.1019821763038635
+ },
+ {
+  "song": "Arise - Run Run Run",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 16.25353693962097,
+  "drums": 7.63454794883728,
+  "bass": 0.7969082891941071,
+  "other": 0.9800751507282257
+ },
+ {
+  "song": "BKS - Bulldozer",
+  "model": "htdemucs",
+  "vocals": 8.805486559867859,
+  "drums": 11.87021255493164,
+  "bass": 9.880768060684204,
+  "other": 6.552032828330994
+ },
+ {
+  "song": "BKS - Bulldozer",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 9.829115271568298,
+  "drums": 12.706576585769653,
+  "bass": 10.400785207748413,
+  "other": 7.3596131801605225
+ },
+ {
+  "song": "BKS - Bulldozer",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 10.68993330001831,
+  "drums": 12.95825719833374,
+  "bass": 10.627795457839966,
+  "other": 7.749562859535217
+ },
+ {
+  "song": "BKS - Too Much",
+  "model": "htdemucs",
+  "vocals": 11.998239755630493,
+  "drums": 10.321431159973145,
+  "bass": 13.366600275039673,
+  "other": 6.657622456550598
+ },
+ {
+  "song": "BKS - Too Much",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 13.189194202423096,
+  "drums": 11.071503162384033,
+  "bass": 13.557956218719482,
+  "other": 7.8681933879852295
+ },
+ {
+  "song": "BKS - Too Much",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 13.972094058990479,
+  "drums": 11.305230855941772,
+  "bass": 13.657559156417847,
+  "other": 8.235812783241272
+ },
+ {
+  "song": "Ben Carrigan - We'll Talk About It All Tonight",
+  "model": "htdemucs",
+  "vocals": 5.882791876792908,
+  "drums": 9.998542070388794,
+  "bass": 13.329789638519287,
+  "other": 6.697860360145569
+ },
+ {
+  "song": "Ben Carrigan - We'll Talk About It All Tonight",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.9804394245147705,
+  "drums": 10.193064212799072,
+  "bass": 11.869375705718994,
+  "other": 7.189087271690369
+ },
+ {
+  "song": "Ben Carrigan - We'll Talk About It All Tonight",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 7.608983516693115,
+  "drums": 10.125854015350342,
+  "bass": 12.173999547958374,
+  "other": 7.45230495929718
+ },
+ {
+  "song": "Bobby Nobody - Stitch Up",
+  "model": "htdemucs",
+  "vocals": 10.04717469215393,
+  "drums": 7.415065169334412,
+  "bass": 8.532658219337463,
+  "other": 6.41966700553894
+ },
+ {
+  "song": "Bobby Nobody - Stitch Up",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 11.462922096252441,
+  "drums": 8.430978655815125,
+  "bass": 9.677708148956299,
+  "other": 7.650474905967712
+ },
+ {
+  "song": "Bobby Nobody - Stitch Up",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.262768745422363,
+  "drums": 8.537036180496216,
+  "bass": 10.05543828010559,
+  "other": 7.979592680931091
+ },
+ {
+  "song": "Buitraker - Revo X",
+  "model": "htdemucs",
+  "vocals": 5.055735111236572,
+  "drums": 14.048376083374023,
+  "bass": 11.255375146865845,
+  "other": 6.767794489860535
+ },
+ {
+  "song": "Buitraker - Revo X",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.535688638687134,
+  "drums": 14.49918508529663,
+  "bass": 11.4924156665802,
+  "other": 7.733280062675476
+ },
+ {
+  "song": "Buitraker - Revo X",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 6.815009713172913,
+  "drums": 14.708892107009888,
+  "bass": 11.48883581161499,
+  "other": 7.8224265575408936
+ },
+ {
+  "song": "Carlos Gonzalez - A Place For Us",
+  "model": "htdemucs",
+  "vocals": 8.017613291740417,
+  "drums": 7.310358285903931,
+  "bass": 3.0104702711105347,
+  "other": 6.923927664756775
+ },
+ {
+  "song": "Carlos Gonzalez - A Place For Us",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 8.942606449127197,
+  "drums": 8.687044978141785,
+  "bass": 4.784369170665741,
+  "other": 7.8374481201171875
+ },
+ {
+  "song": "Carlos Gonzalez - A Place For Us",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 9.405176639556885,
+  "drums": 8.593540787696838,
+  "bass": 4.192609190940857,
+  "other": 8.277615308761597
+ },
+ {
+  "song": "Cristina Vane - So Easy",
+  "model": "htdemucs",
+  "vocals": 10.91313362121582,
+  "drums": 13.762837648391724,
+  "bass": 6.862764954566956,
+  "other": 5.8651041984558105
+ },
+ {
+  "song": "Cristina Vane - So Easy",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 12.471926212310791,
+  "drums": 14.79542851448059,
+  "bass": 6.884547472000122,
+  "other": 6.566439867019653
+ },
+ {
+  "song": "Cristina Vane - So Easy",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 13.486779928207397,
+  "drums": 14.790563583374023,
+  "bass": 6.690223813056946,
+  "other": 6.615952849388123
+ },
+ {
+  "song": "Detsky Sad - Walkie Talkie",
+  "model": "htdemucs",
+  "vocals": 4.698114693164825,
+  "drums": 5.998239517211914,
+  "bass": 3.9605125784873962,
+  "other": 2.5774937868118286
+ },
+ {
+  "song": "Detsky Sad - Walkie Talkie",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.3726115226745605,
+  "drums": 6.1425018310546875,
+  "bass": 6.050809025764465,
+  "other": 2.216353714466095
+ },
+ {
+  "song": "Detsky Sad - Walkie Talkie",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 5.884261727333069,
+  "drums": 6.221238374710083,
+  "bass": 5.654436945915222,
+  "other": 2.290610522031784
+ },
+ {
+  "song": "Enda Reilly - Cur An Long Ag Seol",
+  "model": "htdemucs",
+  "vocals": 11.475789546966553,
+  "drums": 13.472976684570312,
+  "bass": 10.668387413024902,
+  "other": 9.082648158073425
+ },
+ {
+  "song": "Enda Reilly - Cur An Long Ag Seol",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 15.164393186569214,
+  "drums": 13.346223831176758,
+  "bass": 11.051750183105469,
+  "other": 11.370835304260254
+ },
+ {
+  "song": "Enda Reilly - Cur An Long Ag Seol",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 16.433184146881104,
+  "drums": 12.411413192749023,
+  "bass": 10.611332654953003,
+  "other": 11.99920654296875
+ },
+ {
+  "song": "Forkupines - Semantics",
+  "model": "htdemucs",
+  "vocals": 8.529378771781921,
+  "drums": 12.698988914489746,
+  "bass": 7.42769718170166,
+  "other": 6.689497232437134
+ },
+ {
+  "song": "Forkupines - Semantics",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 8.883393406867981,
+  "drums": 12.98462986946106,
+  "bass": 8.104779124259949,
+  "other": 7.080858945846558
+ },
+ {
+  "song": "Forkupines - Semantics",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 9.24662470817566,
+  "drums": 12.938246726989746,
+  "bass": 7.92408287525177,
+  "other": 7.153956294059753
+ },
+ {
+  "song": "Georgia Wonder - Siren",
+  "model": "htdemucs",
+  "vocals": 6.000083684921265,
+  "drums": 10.701943635940552,
+  "bass": 12.056077718734741,
+  "other": 6.827460527420044
+ },
+ {
+  "song": "Georgia Wonder - Siren",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.618905067443848,
+  "drums": 11.86385989189148,
+  "bass": 12.940315008163452,
+  "other": 7.343770861625671
+ },
+ {
+  "song": "Georgia Wonder - Siren",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 6.529229283332825,
+  "drums": 12.063871622085571,
+  "bass": 13.157445192337036,
+  "other": 7.439433336257935
+ },
+ {
+  "song": "Girls Under Glass - We Feel Alright",
+  "model": "htdemucs",
+  "vocals": 6.353330016136169,
+  "drums": 8.958308696746826,
+  "bass": 5.338670611381531,
+  "other": 6.073171496391296
+ },
+ {
+  "song": "Girls Under Glass - We Feel Alright",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.504377126693726,
+  "drums": 8.539336323738098,
+  "bass": 4.66850072145462,
+  "other": 6.0881108045578
+ },
+ {
+  "song": "Girls Under Glass - We Feel Alright",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 6.4947813749313354,
+  "drums": 8.216158151626587,
+  "bass": 4.795457422733307,
+  "other": 6.404339671134949
+ },
+ {
+  "song": "Hollow Ground - Ill Fate",
+  "model": "htdemucs",
+  "vocals": 7.758318781852722,
+  "drums": 6.615577936172485,
+  "bass": 2.6236507296562195,
+  "other": 6.58511221408844
+ },
+ {
+  "song": "Hollow Ground - Ill Fate",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 8.11155617237091,
+  "drums": 7.27424681186676,
+  "bass": 1.4698828756809235,
+  "other": 5.721458196640015
+ },
+ {
+  "song": "Hollow Ground - Ill Fate",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 8.329773545265198,
+  "drums": 7.812621593475342,
+  "bass": 0.02042665146291256,
+  "other": 4.472904205322266
+ },
+ {
+  "song": "James Elder & Mark M Thompson - The English Actor",
+  "model": "htdemucs",
+  "vocals": 7.82282292842865,
+  "drums": 10.336843729019165,
+  "bass": 8.404656052589417,
+  "other": 7.209716439247131
+ },
+ {
+  "song": "James Elder & Mark M Thompson - The English Actor",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 7.5486403703689575,
+  "drums": 10.848236083984375,
+  "bass": 7.678619623184204,
+  "other": 6.9120460748672485
+ },
+ {
+  "song": "James Elder & Mark M Thompson - The English Actor",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 7.668434381484985,
+  "drums": 11.272706985473633,
+  "bass": 7.327328324317932,
+  "other": 6.949266791343689
+ },
+ {
+  "song": "Juliet's Rescue - Heartbeats",
+  "model": "htdemucs",
+  "vocals": 9.949024319648743,
+  "drums": 15.345698595046997,
+  "bass": 2.9698598384857178,
+  "other": 6.83617889881134
+ },
+ {
+  "song": "Juliet's Rescue - Heartbeats",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.324954986572266,
+  "drums": 15.719528198242188,
+  "bass": 4.70056027173996,
+  "other": 8.132245540618896
+ },
+ {
+  "song": "Juliet's Rescue - Heartbeats",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 10.977926254272461,
+  "drums": 15.784730911254883,
+  "bass": 4.873868823051453,
+  "other": 8.293477892875671
+ },
+ {
+  "song": "Little Chicago's Finest - My Own",
+  "model": "htdemucs",
+  "vocals": 10.429174900054932,
+  "drums": 6.538701057434082,
+  "bass": 7.330021262168884,
+  "other": 0.19244519993662834
+ },
+ {
+  "song": "Little Chicago's Finest - My Own",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.590903401374817,
+  "drums": 0.8585162460803986,
+  "bass": 14.062131643295288,
+  "other": 3.780434727668762
+ },
+ {
+  "song": "Little Chicago's Finest - My Own",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 13.772063255310059,
+  "drums": 1.6360284388065338,
+  "bass": 17.03951358795166,
+  "other": -4.757682681083679
+ },
+ {
+  "song": "Louis Cressy Band - Good Time",
+  "model": "htdemucs",
+  "vocals": 10.344529151916504,
+  "drums": 9.655767679214478,
+  "bass": 10.035816431045532,
+  "other": 9.73737359046936
+ },
+ {
+  "song": "Louis Cressy Band - Good Time",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 11.993751525878906,
+  "drums": 10.853002071380615,
+  "bass": 9.253178238868713,
+  "other": 10.40219783782959
+ },
+ {
+  "song": "Louis Cressy Band - Good Time",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.393091917037964,
+  "drums": 11.205861568450928,
+  "bass": 10.082952976226807,
+  "other": 10.911920070648193
+ },
+ {
+  "song": "Lyndsey Ollard - Catching Up",
+  "model": "htdemucs",
+  "vocals": 11.237660646438599,
+  "drums": 9.022371172904968,
+  "bass": 12.090773582458496,
+  "other": 5.704537034034729
+ },
+ {
+  "song": "Lyndsey Ollard - Catching Up",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 16.342042684555054,
+  "drums": 8.942771553993225,
+  "bass": 11.211048364639282,
+  "other": 8.50640594959259
+ },
+ {
+  "song": "Lyndsey Ollard - Catching Up",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 17.71522045135498,
+  "drums": 9.557846188545227,
+  "bass": 11.098877191543579,
+  "other": 9.215649962425232
+ },
+ {
+  "song": "M.E.R.C. Music - Knockout",
+  "model": "htdemucs",
+  "vocals": 10.555756092071533,
+  "drums": 11.15930438041687,
+  "bass": 12.503172159194946,
+  "other": 6.9335490465164185
+ },
+ {
+  "song": "M.E.R.C. Music - Knockout",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 11.437598466873169,
+  "drums": 11.730470657348633,
+  "bass": 12.770873308181763,
+  "other": 7.966952323913574
+ },
+ {
+  "song": "M.E.R.C. Music - Knockout",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 11.989076137542725,
+  "drums": 12.333564758300781,
+  "bass": 13.084990978240967,
+  "other": 8.54297161102295
+ },
+ {
+  "song": "Moosmusic - Big Dummy Shake",
+  "model": "htdemucs",
+  "vocals": 11.17835521697998,
+  "drums": 12.365317344665527,
+  "bass": 8.918510675430298,
+  "other": 7.565028071403503
+ },
+ {
+  "song": "Moosmusic - Big Dummy Shake",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 12.221382856369019,
+  "drums": 12.16862678527832,
+  "bass": 8.785308599472046,
+  "other": 7.504534721374512
+ },
+ {
+  "song": "Moosmusic - Big Dummy Shake",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 13.644742965698242,
+  "drums": 12.201619148254395,
+  "bass": 9.27178680896759,
+  "other": 7.712441086769104
+ },
+ {
+  "song": "Motor Tapes - Shore",
+  "model": "htdemucs",
+  "vocals": 9.33609664440155,
+  "drums": 9.207026362419128,
+  "bass": 11.650315523147583,
+  "other": 10.928770303726196
+ },
+ {
+  "song": "Motor Tapes - Shore",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 9.791229367256165,
+  "drums": 10.657652616500854,
+  "bass": 13.369903564453125,
+  "other": 11.600396633148193
+ },
+ {
+  "song": "Motor Tapes - Shore",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 10.274902582168579,
+  "drums": 10.89059591293335,
+  "bass": 13.421032428741455,
+  "other": 12.071505784988403
+ },
+ {
+  "song": "Mu - Too Bright",
+  "model": "htdemucs",
+  "vocals": 10.242805480957031,
+  "drums": 15.054277181625366,
+  "bass": 4.922999739646912,
+  "other": 6.841157674789429
+ },
+ {
+  "song": "Mu - Too Bright",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.266666412353516,
+  "drums": 15.422717332839966,
+  "bass": 4.801956415176392,
+  "other": 6.973139047622681
+ },
+ {
+  "song": "Mu - Too Bright",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 11.70132040977478,
+  "drums": 15.968552827835083,
+  "bass": 5.637256503105164,
+  "other": 7.9758816957473755
+ },
+ {
+  "song": "Nerve 9 - Pray For The Rain",
+  "model": "htdemucs",
+  "vocals": 8.50329875946045,
+  "drums": 12.995796203613281,
+  "bass": 8.008875250816345,
+  "other": 7.7381932735443115
+ },
+ {
+  "song": "Nerve 9 - Pray For The Rain",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.551234483718872,
+  "drums": 13.999035358428955,
+  "bass": 9.0048748254776,
+  "other": 9.35897409915924
+ },
+ {
+  "song": "Nerve 9 - Pray For The Rain",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 10.97274899482727,
+  "drums": 14.545749425888062,
+  "bass": 9.011274576187134,
+  "other": 9.543686509132385
+ },
+ {
+  "song": "PR - Happy Daze",
+  "model": "htdemucs",
+  "vocals": 0.9564290195703506,
+  "drums": 19.000487327575684,
+  "bass": 10.719654560089111,
+  "other": 8.821721076965332
+ },
+ {
+  "song": "PR - Happy Daze",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 2.418612092733383,
+  "drums": 9.18296754360199,
+  "bass": -0.0038861867506057024,
+  "other": 2.7194243669509888
+ },
+ {
+  "song": "PR - Happy Daze",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 4.038394391536713,
+  "drums": 10.0704824924469,
+  "bass": -6.600972028536489e-05,
+  "other": 12.465050220489502
+ },
+ {
+  "song": "PR - Oh No",
+  "model": "htdemucs",
+  "vocals": 2.124163806438446,
+  "drums": 7.020184397697449,
+  "bass": 3.254515528678894,
+  "other": 0.6004330143332481
+ },
+ {
+  "song": "PR - Oh No",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 2.2162042558193207,
+  "drums": 8.12848687171936,
+  "bass": 2.021446079015732,
+  "other": -1.7800475656986237
+ },
+ {
+  "song": "PR - Oh No",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 1.2516137957572937,
+  "drums": 8.014283180236816,
+  "bass": 0.515228658914566,
+  "other": -3.6344552040100098
+ },
+ {
+  "song": "Punkdisco - Oral Hygiene",
+  "model": "htdemucs",
+  "vocals": 9.906729459762573,
+  "drums": 5.079320073127747,
+  "bass": 4.94146853685379,
+  "other": 1.8010267615318298
+ },
+ {
+  "song": "Punkdisco - Oral Hygiene",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 9.180994629859924,
+  "drums": 9.122788906097412,
+  "bass": 9.359040260314941,
+  "other": 2.1328020095825195
+ },
+ {
+  "song": "Punkdisco - Oral Hygiene",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 8.390666246414185,
+  "drums": 8.02809476852417,
+  "bass": 8.249027729034424,
+  "other": 1.4273330569267273
+ },
+ {
+  "song": "Raft Monk - Tiring",
+  "model": "htdemucs",
+  "vocals": 5.7893288135528564,
+  "drums": 9.034146666526794,
+  "bass": 8.729979395866394,
+  "other": 5.515698790550232
+ },
+ {
+  "song": "Raft Monk - Tiring",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.817314028739929,
+  "drums": 9.593475461006165,
+  "bass": 9.279360175132751,
+  "other": 6.354320049285889
+ },
+ {
+  "song": "Raft Monk - Tiring",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 7.3862481117248535,
+  "drums": 9.572596549987793,
+  "bass": 9.54834520816803,
+  "other": 6.629305481910706
+ },
+ {
+  "song": "Sambasevam Shanmugam - Kaathaadi",
+  "model": "htdemucs",
+  "vocals": 13.731566667556763,
+  "drums": 7.9658836126327515,
+  "bass": 11.338609457015991,
+  "other": 10.168702602386475
+ },
+ {
+  "song": "Sambasevam Shanmugam - Kaathaadi",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 15.516406297683716,
+  "drums": 6.2252819538116455,
+  "bass": 12.389553785324097,
+  "other": 9.714358448982239
+ },
+ {
+  "song": "Sambasevam Shanmugam - Kaathaadi",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 16.360141038894653,
+  "drums": 6.30764901638031,
+  "bass": 12.78501033782959,
+  "other": 9.990362524986267
+ },
+ {
+  "song": "Secretariat - Borderline",
+  "model": "htdemucs",
+  "vocals": 8.493527173995972,
+  "drums": 7.333957552909851,
+  "bass": 5.835720896720886,
+  "other": 9.038752317428589
+ },
+ {
+  "song": "Secretariat - Borderline",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.205386877059937,
+  "drums": 8.149493336677551,
+  "bass": 6.5544939041137695,
+  "other": 10.218664407730103
+ },
+ {
+  "song": "Secretariat - Borderline",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 11.074157953262329,
+  "drums": 8.148698806762695,
+  "bass": 5.968304872512817,
+  "other": 10.204082727432251
+ },
+ {
+  "song": "Secretariat - Over The Top",
+  "model": "htdemucs",
+  "vocals": 10.081208944320679,
+  "drums": 9.130202531814575,
+  "bass": 11.210932731628418,
+  "other": 8.093394041061401
+ },
+ {
+  "song": "Secretariat - Over The Top",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.918821096420288,
+  "drums": 10.228841304779053,
+  "bass": 13.16712737083435,
+  "other": 9.471909403800964
+ },
+ {
+  "song": "Secretariat - Over The Top",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 11.62003755569458,
+  "drums": 10.301554203033447,
+  "bass": 12.723857164382935,
+  "other": 9.336315393447876
+ },
+ {
+  "song": "Side Effects Project - Sing With Me",
+  "model": "htdemucs",
+  "vocals": 12.861161231994629,
+  "drums": 15.716625452041626,
+  "bass": 13.088120222091675,
+  "other": 3.237191140651703
+ },
+ {
+  "song": "Side Effects Project - Sing With Me",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 13.72998833656311,
+  "drums": 15.902198553085327,
+  "bass": 13.02676796913147,
+  "other": 5.381048321723938
+ },
+ {
+  "song": "Side Effects Project - Sing With Me",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 14.225281476974487,
+  "drums": 16.60244345664978,
+  "bass": 13.728324174880981,
+  "other": 5.52233099937439
+ },
+ {
+  "song": "Signe Jakobsen - What Have You Done To Me",
+  "model": "htdemucs",
+  "vocals": 11.173275709152222,
+  "drums": 6.231827139854431,
+  "bass": 4.216094613075256,
+  "other": 6.581966876983643
+ },
+ {
+  "song": "Signe Jakobsen - What Have You Done To Me",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 11.791272163391113,
+  "drums": 6.587068438529968,
+  "bass": 3.9009732007980347,
+  "other": 6.905542612075806
+ },
+ {
+  "song": "Signe Jakobsen - What Have You Done To Me",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.078148126602173,
+  "drums": 6.4752644300460815,
+  "bass": 3.7377378344535828,
+  "other": 6.848549842834473
+ },
+ {
+  "song": "Skelpolu - Resurrection",
+  "model": "htdemucs",
+  "vocals": 2.0252789556980133,
+  "drums": 13.61920952796936,
+  "bass": 15.464620590209961,
+  "other": 6.016092300415039
+ },
+ {
+  "song": "Skelpolu - Resurrection",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 1.681394875049591,
+  "drums": 13.55905532836914,
+  "bass": 15.213606357574463,
+  "other": 4.5814403891563416
+ },
+ {
+  "song": "Skelpolu - Resurrection",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 0.7421758770942688,
+  "drums": 13.517966270446777,
+  "bass": 13.618861436843872,
+  "other": 4.13651704788208
+ },
+ {
+  "song": "Speak Softly - Broken Man",
+  "model": "htdemucs",
+  "vocals": 6.740522384643555,
+  "drums": 10.828495025634766,
+  "bass": 17.424402236938477,
+  "other": 9.371259808540344
+ },
+ {
+  "song": "Speak Softly - Broken Man",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 8.806160688400269,
+  "drums": 12.517229318618774,
+  "bass": 12.01163649559021,
+  "other": 8.43392014503479
+ },
+ {
+  "song": "Speak Softly - Broken Man",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 9.800185561180115,
+  "drums": 11.511468887329102,
+  "bass": 12.463666200637817,
+  "other": 8.76846969127655
+ },
+ {
+  "song": "Speak Softly - Like Horses",
+  "model": "htdemucs",
+  "vocals": 8.816216588020325,
+  "drums": 8.457756638526917,
+  "bass": 22.08017110824585,
+  "other": 8.137629628181458
+ },
+ {
+  "song": "Speak Softly - Like Horses",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.426874160766602,
+  "drums": 10.941810607910156,
+  "bass": 21.737675666809082,
+  "other": 9.865383505821228
+ },
+ {
+  "song": "Speak Softly - Like Horses",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 10.646806955337524,
+  "drums": 10.035970211029053,
+  "bass": 22.221336364746094,
+  "other": 9.871141910552979
+ },
+ {
+  "song": "The Doppler Shift - Atrophy",
+  "model": "htdemucs",
+  "vocals": 9.462182521820068,
+  "drums": 9.241105914115906,
+  "bass": 1.8805158138275146,
+  "other": 6.897760629653931
+ },
+ {
+  "song": "The Doppler Shift - Atrophy",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.379459857940674,
+  "drums": 12.519948482513428,
+  "bass": 5.2382659912109375,
+  "other": 8.169173002243042
+ },
+ {
+  "song": "The Doppler Shift - Atrophy",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 11.377032995223999,
+  "drums": 10.325155258178711,
+  "bass": 5.388301610946655,
+  "other": 7.1919673681259155
+ },
+ {
+  "song": "The Easton Ellises (Baumi) - SDRNR",
+  "model": "htdemucs",
+  "vocals": 6.474196910858154,
+  "drums": 10.602011680603027,
+  "bass": 8.067194819450378,
+  "other": 3.6334723234176636
+ },
+ {
+  "song": "The Easton Ellises (Baumi) - SDRNR",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 7.447200417518616,
+  "drums": 9.355693459510803,
+  "bass": 6.272258758544922,
+  "other": 3.50862056016922
+ },
+ {
+  "song": "The Easton Ellises (Baumi) - SDRNR",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 7.391759157180786,
+  "drums": 9.772957563400269,
+  "bass": 5.974941849708557,
+  "other": 3.4121617674827576
+ },
+ {
+  "song": "The Easton Ellises - Falcon 69",
+  "model": "htdemucs",
+  "vocals": 4.962787330150604,
+  "drums": 10.253641605377197,
+  "bass": 7.734493017196655,
+  "other": 3.937656283378601
+ },
+ {
+  "song": "The Easton Ellises - Falcon 69",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 6.5000927448272705,
+  "drums": 11.189557313919067,
+  "bass": 7.915995717048645,
+  "other": 5.190122723579407
+ },
+ {
+  "song": "The Easton Ellises - Falcon 69",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 6.94124162197113,
+  "drums": 11.099015474319458,
+  "bass": 7.848777174949646,
+  "other": 5.29712438583374
+ },
+ {
+  "song": "The Long Wait - Dark Horses",
+  "model": "htdemucs",
+  "vocals": 9.690921306610107,
+  "drums": 8.949909806251526,
+  "bass": 8.77383291721344,
+  "other": 6.993013620376587
+ },
+ {
+  "song": "The Long Wait - Dark Horses",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 11.349352598190308,
+  "drums": 10.375257730484009,
+  "bass": 10.198805332183838,
+  "other": 8.702600598335266
+ },
+ {
+  "song": "The Long Wait - Dark Horses",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.160917520523071,
+  "drums": 10.856047868728638,
+  "bass": 10.43912410736084,
+  "other": 9.169831275939941
+ },
+ {
+  "song": "The Mountaineering Club - Mallory",
+  "model": "htdemucs",
+  "vocals": 12.083089351654053,
+  "drums": 12.807272672653198,
+  "bass": 11.95408821105957,
+  "other": 8.079366087913513
+ },
+ {
+  "song": "The Mountaineering Club - Mallory",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 13.361694812774658,
+  "drums": 12.675024271011353,
+  "bass": 12.133275270462036,
+  "other": 8.427000641822815
+ },
+ {
+  "song": "The Mountaineering Club - Mallory",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 13.741542100906372,
+  "drums": 12.997989654541016,
+  "bass": 11.664079427719116,
+  "other": 8.080421686172485
+ },
+ {
+  "song": "The Sunshine Garcia Band - For I Am The Moon",
+  "model": "htdemucs",
+  "vocals": 10.430885553359985,
+  "drums": 10.328569412231445,
+  "bass": 9.743570685386658,
+  "other": 2.64181911945343
+ },
+ {
+  "song": "The Sunshine Garcia Band - For I Am The Moon",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 12.418820858001709,
+  "drums": 6.244655251502991,
+  "bass": 5.711091160774231,
+  "other": 3.4833431243896484
+ },
+ {
+  "song": "The Sunshine Garcia Band - For I Am The Moon",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 12.631140947341919,
+  "drums": 10.181107521057129,
+  "bass": 9.820340871810913,
+  "other": 3.233940303325653
+ },
+ {
+  "song": "Timboz - Pony",
+  "model": "htdemucs",
+  "vocals": 5.502532124519348,
+  "drums": 5.29967188835144,
+  "bass": 3.103664815425873,
+  "other": 9.021927118301392
+ },
+ {
+  "song": "Timboz - Pony",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 5.857368111610413,
+  "drums": 5.883287787437439,
+  "bass": 4.538494050502777,
+  "other": 9.242082834243774
+ },
+ {
+  "song": "Timboz - Pony",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 5.930083990097046,
+  "drums": 6.062633991241455,
+  "bass": 4.248915314674377,
+  "other": 9.425086975097656
+ },
+ {
+  "song": "Tom McKenzie - Directions",
+  "model": "htdemucs",
+  "vocals": 10.964939594268799,
+  "drums": 15.663695335388184,
+  "bass": 5.210733413696289,
+  "other": 2.999078929424286
+ },
+ {
+  "song": "Tom McKenzie - Directions",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 13.447285890579224,
+  "drums": 17.562021017074585,
+  "bass": 7.4039798974990845,
+  "other": 5.131025314331055
+ },
+ {
+  "song": "Tom McKenzie - Directions",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 14.30565357208252,
+  "drums": 17.961043119430542,
+  "bass": 8.573856949806213,
+  "other": 6.263357400894165
+ },
+ {
+  "song": "Triviul feat. The Fiend - Widow",
+  "model": "htdemucs",
+  "vocals": 9.956910014152527,
+  "drums": 8.223325610160828,
+  "bass": 15.719895362854004,
+  "other": 4.827809035778046
+ },
+ {
+  "song": "Triviul feat. The Fiend - Widow",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.20582914352417,
+  "drums": 8.55039358139038,
+  "bass": 15.767512321472168,
+  "other": 4.866995215415955
+ },
+ {
+  "song": "Triviul feat. The Fiend - Widow",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 11.152509450912476,
+  "drums": 8.567481637001038,
+  "bass": 16.237186193466187,
+  "other": 5.398693084716797
+ },
+ {
+  "song": "We Fell From The Sky - Not You",
+  "model": "htdemucs",
+  "vocals": 6.931709051132202,
+  "drums": 11.915355920791626,
+  "bass": 4.8444947600364685,
+  "other": 8.869619369506836
+ },
+ {
+  "song": "We Fell From The Sky - Not You",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 7.1201395988464355,
+  "drums": 12.225184440612793,
+  "bass": 4.885874688625336,
+  "other": 9.306533336639404
+ },
+ {
+  "song": "We Fell From The Sky - Not You",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 7.575551867485046,
+  "drums": 12.242088317871094,
+  "bass": 4.7449421882629395,
+  "other": 9.39499020576477
+ },
+ {
+  "song": "Zeno - Signs",
+  "model": "htdemucs",
+  "vocals": 9.127765893936157,
+  "drums": 10.065743923187256,
+  "bass": 3.9614495635032654,
+  "other": 7.30854868888855
+ },
+ {
+  "song": "Zeno - Signs",
+  "model": "scnet_s_11s_overlap2",
+  "vocals": 10.226866006851196,
+  "drums": 10.685235261917114,
+  "bass": 3.694925010204315,
+  "other": 7.5343018770217896
+ },
+ {
+  "song": "Zeno - Signs",
+  "model": "scnet_l_5s_overlap1",
+  "vocals": 10.444074869155884,
+  "drums": 10.082924365997314,
+  "bass": 4.038950502872467,
+  "other": 7.9376643896102905
+ }
+]

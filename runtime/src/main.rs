@@ -16,8 +16,8 @@ struct Arguments {
     output_directory: PathBuf,
     #[arg(long, default_value_t = 8)]
     threads: usize,
-    #[arg(long, default_value_t = 2)]
-    overlap: usize,
+    #[arg(long, default_value_t = 0.75)]
+    hop_fraction: f64,
     #[arg(long, default_value_t = DEFAULT_CHUNK_SAMPLES)]
     chunk_samples: usize,
 }
@@ -28,7 +28,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let [left, right] = read_stereo(&arguments.input)?;
     let mut separator = Separator::load(&arguments.model, arguments.threads, arguments.chunk_samples)?;
     let started = Instant::now();
-    let stems = separator.separate(&left, &right, arguments.overlap)?;
+    let stems = separator.separate(&left, &right, arguments.hop_fraction)?;
     let seconds = left.len() as f64 / 44_100.0;
     let elapsed = started.elapsed().as_secs_f64();
     eprintln!("separated {seconds:.1} s of audio in {elapsed:.1} s ({:.1} s per minute)", elapsed / seconds * 60.0);

@@ -99,3 +99,42 @@ Fine-tune SCNet-S (MIT code, 10M parameters) on MUSDB, Slakh and 7,196 FMA clips
 - ONNX export needs the STFT and iSTFT moved out of the graph.
 - Per-genre evaluation and a listening test are not done.
 - Weights licence: code is MIT, weights come from MUSDB-trained checkpoints; the clean-licence fallback retrain is not started.
+
+## SCNet-L chunk and hop sweep (PyTorch, `src/sweep_scnet_l.py`)
+
+Own overlap-add with Hann blending, standardised input, 50 MUSDB test songs. Hop is the step between chunk starts as a fraction of the chunk.
+
+| Chunk | Hop | vocals | drums | bass | other | average | Compute vs hop 1.0 |
+|---|---|---|---|---|---|---|---|
+| 5.5 s | 1.0 | 10.41 | 10.55 | 8.74 | 6.85 | 9.14 | 1.0x |
+| 5.5 s | 0.75 | 10.53 | 10.68 | 8.90 | 6.96 | 9.27 | 1.33x |
+| 5.5 s | 0.5 | 10.61 | 10.74 | 8.99 | 7.04 | 9.34 | 2.0x |
+| 8.25 s | 0.75 | 10.73 | 10.90 | 9.13 | 7.07 | 9.46 | about 1.4x |
+| 8.25 s | 0.5 | 10.79 | 10.97 | 9.19 | 7.13 | 9.52 | about 2.1x |
+
+Hop 1.0 means chunks that only touch, which leaves near-zero blending weight at every chunk boundary; bass suffers most. Songs hit hardest at hop 1.0: "PR - Happy Daze" bass 10.7 to 0.0 dB, "Speak Softly - Broken Man" bass 17.4 to 12.5, "Skelpolu - Resurrection" bass 15.5 to 13.6, "Hollow Ground - Ill Fate" bass 2.6 to 0.0.
+
+The runtime's default is now 5.5 s chunks with hop 0.75. Its speed was not measured because the Mac was under heavy load (load average 144); the estimate is the hop 1.0 measurement times 1.33. Peak memory does not depend on the hop.
+
+## Per song and per genre (`src/score_per_song.py`, `src/genre_report.py`)
+
+htdemucs against SCNet-S (11 s, 2x) and SCNet-L (5.5 s, hop 1.0), 50 songs. SCNet-L beat htdemucs on 42 of 50 songs: mean +0.77 dB, median +0.97. By stem: vocals 46 of 50 songs (+1.71), drums 41 (+0.61), bass 33 (+0.11), other 40 (+0.67).
+
+Genre labels in `musdb_test_genres.csv` come from each artist's "Style" line in the Cambridge Mixing Secrets library, mapped by hand onto a fixed list. They are per artist, not per track, were not checked against the raw page, and four songs are unknown. Counts per genre are small.
+
+| Genre | Songs | htdemucs | SCNet-S | SCNet-L (hop 1.0) | SCNet-L minus htdemucs | SCNet-L wins |
+|---|---|---|---|---|---|---|
+| rock | 17 | 8.68 | 9.52 | 9.71 | +1.03 | 17/17 |
+| folk-acoustic | 5 | 9.31 | 10.71 | 10.98 | +1.67 | 5/5 |
+| pop | 8 | 8.60 | 9.17 | 9.50 | +0.90 | 7/8 |
+| hip-hop | 3 | 9.21 | 9.77 | 10.31 | +1.10 | 3/3 |
+| world | 3 | 7.78 | 8.10 | 8.91 | +1.13 | 3/3 |
+| electronic | 8 | 8.20 | 8.67 | 8.63 | +0.43 | 5/8 |
+| metal | 2 | 5.81 | 6.01 | 5.79 | -0.03 | 1/2 |
+| unknown | 4 | 6.76 | 5.14 | 5.65 | -1.11 | 1/4 |
+
+Electronic is the weakest genre for the gain, which matters for a DJ application. SCNet-L loses on the drum & bass track and on both "PR" tracks. These per-genre numbers use hop 1.0, which the sweep shows is the weakest blending; they have not been recomputed at hop 0.75.
+
+## Listening test
+
+`src/make_listening_clips.py` and `src/make_listening_page.py` build a local blind A/B page (36 trials: 12 clips of 12 s, each for vocals, instrumental and drums, htdemucs against SCNet-L at 5.5 s and hop 0.75, order randomised). The audio is MUSDB (research-only) and stays in the git-ignored `listening-test/` folder. No results yet.
