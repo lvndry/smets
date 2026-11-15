@@ -2,8 +2,6 @@
 
 Small, open music source separation: split a song into drums, bass, other and vocals on a laptop CPU.
 
-The name is "stems" backwards.
-
 ## Status
 
 Early. There is no model of our own yet. What exists is a reference runtime in Rust for SCNet-S (about 10M parameters), the export that feeds it, and the measurements that say it is worth proposing to a downstream app.
