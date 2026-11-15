@@ -20,25 +20,25 @@ def stem_sdr(estimate, reference):
     return 10 * torch.log10((signal + 1e-8) / (noise + 1e-8)).item()
 
 
-def separate(network, session, mixture, overlap):
-    step = CHUNK_SAMPLES // overlap
+def separate(network, session, mixture, overlap, chunk_samples=CHUNK_SAMPLES):
+    step = chunk_samples // overlap
     frames = mixture.shape[-1]
-    window = torch.hann_window(CHUNK_SAMPLES, periodic=False).clamp_min(1e-3)
+    window = torch.hann_window(chunk_samples, periodic=False).clamp_min(1e-3)
     output = torch.zeros((4, 2, frames))
     weight = torch.zeros(frames)
-    starts = list(range(0, max(frames - CHUNK_SAMPLES, 0) + 1, step))
-    if starts[-1] + CHUNK_SAMPLES < frames:
-        starts.append(frames - CHUNK_SAMPLES)
+    starts = list(range(0, max(frames - chunk_samples, 0) + 1, step))
+    if starts[-1] + chunk_samples < frames:
+        starts.append(frames - chunk_samples)
     from export_scnet_onnx import from_spectrum, to_spectrum
 
     for start in starts:
-        chunk = mixture[:, start : start + CHUNK_SAMPLES]
-        if chunk.shape[-1] < CHUNK_SAMPLES:
-            chunk = torch.nn.functional.pad(chunk, (0, CHUNK_SAMPLES - chunk.shape[-1]))
+        chunk = mixture[:, start : start + chunk_samples]
+        if chunk.shape[-1] < chunk_samples:
+            chunk = torch.nn.functional.pad(chunk, (0, chunk_samples - chunk.shape[-1]))
         spectrum, padding = to_spectrum(network, chunk[None])
         features = session.run(None, {"spectrum": spectrum.numpy()})[0]
         waveform = from_spectrum(network, torch.from_numpy(features), padding)[0]
-        length = min(CHUNK_SAMPLES, frames - start)
+        length = min(chunk_samples, frames - start)
         output[:, :, start : start + length] += waveform[:, :, :length] * window[:length]
         weight[start : start + length] += window[:length]
     return output / weight.clamp_min(1e-6)
@@ -51,6 +51,7 @@ def main():
     parser.add_argument("--model", required=True)
     parser.add_argument("--test-root", required=True)
     parser.add_argument("--overlap", type=int, default=2)
+    parser.add_argument("--chunk-samples", type=int, default=CHUNK_SAMPLES)
     parser.add_argument("--threads", type=int, default=8)
     arguments = parser.parse_args()
 
@@ -73,7 +74,7 @@ def main():
         mixture = torch.from_numpy(audio.T)
         mono = mixture.mean(0)
         mean, deviation = mono.mean(), mono.std()
-        estimate = separate(network, session, (mixture - mean) / deviation, arguments.overlap) * deviation + mean
+        estimate = separate(network, session, (mixture - mean) / deviation, arguments.overlap, arguments.chunk_samples) * deviation + mean
         by_name = {name: estimate[index] for index, name in enumerate(SCNET_ORDER)}
         for name in STEM_NAMES:
             reference, _ = soundfile.read(os.path.join(directory, name + ".wav"), dtype="float32", always_2d=True)

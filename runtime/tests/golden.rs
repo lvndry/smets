@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 use smets::audio::read_stereo;
-use smets::{STEM_NAMES, Separator};
+use smets::{DEFAULT_CHUNK_SAMPLES, STEM_NAMES, Separator};
 
 fn signal_to_error_db(estimate: &[f32], expected: &[f32]) -> f64 {
     let signal: f64 = expected.iter().map(|value| (*value as f64).powi(2)).sum();
@@ -17,7 +17,7 @@ fn matches_the_python_pipeline() {
     };
     let golden = PathBuf::from(golden);
     let [left, right] = read_stereo(&golden.join("excerpt.wav")).unwrap();
-    let mut separator = Separator::load(&PathBuf::from(model), 8).unwrap();
+    let mut separator = Separator::load(&PathBuf::from(model), 8, DEFAULT_CHUNK_SAMPLES).unwrap();
     let stems = separator.separate(&left, &right, 2).unwrap();
     for (name, channels) in STEM_NAMES.iter().zip(stems.iter()) {
         let [expected_left, expected_right] = read_stereo(&golden.join(format!("expected_{name}.wav"))).unwrap();

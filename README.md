@@ -4,16 +4,17 @@ Small, open music source separation: split a song into drums, bass, other and vo
 
 ## Status
 
-Early. There is no model of our own yet. What exists is a reference runtime in Rust for SCNet-S (about 10M parameters), the export that feeds it, and the measurements that say it is worth proposing to a downstream app.
+Early. There is no model of our own yet. What exists is a reference runtime in Rust for the SCNet family (SCNet-S at about 10M parameters, SCNet-L at about 42M), the export that feeds it, and the measurements that say it is worth proposing to a downstream app.
 
 On the 50 MUSDB18-HQ test songs, scored with the same function for every model:
 
 | Model | Parameters | vocals | drums | bass | other | average |
 |---|---|---|---|---|---|---|
 | htdemucs | 42M | 8.70 | 9.93 | 8.63 | 6.18 | 8.36 |
-| SCNet-S through the ONNX graph and the Rust-equivalent pipeline | about 10M | 9.76 | 10.28 | 8.75 | 6.76 | 8.89 |
+| SCNet-S, 11 s chunks, 2x overlap, ONNX graph through the pipeline | about 10M | 9.76 | 10.28 | 8.75 | 6.76 | 8.89 |
+| SCNet-L, 5.5 s chunks, no overlap, ONNX graph through the pipeline | about 42M | 10.41 | 10.55 | 8.75 | 6.85 | 9.14 |
 
-Plain whole-song SDR per stem, averaged over songs. This is not the median-based cSDR in the Demucs README, so compare only within the table. There is no per-genre breakdown and no listening test yet, and the SCNet-S checkpoint appears to have been picked as the best epoch on MUSDB test, so 8.9 is probably slightly optimistic.
+Plain whole-song SDR per stem, averaged over songs. This is not the median-based cSDR in the Demucs README, so compare only within the table. There is no per-genre breakdown and no listening test yet, and the checkpoints appear to have been picked as the best epoch on MUSDB test, so the SCNet scores are probably slightly optimistic. On the same Mac and 7-minute track, SCNet-L at 5.5 s chunks ran at 31.9 s per minute of audio with 2.8 GB resident, against 39.7 s and 2.4 GB for htdemucs in Euphoria; see `docs/integrating.md`.
 
 Fine-tuning SCNet-S on extra data (FMA clips labelled by a larger teacher, Slakh) did not beat the untouched weights in any run. The experiments and negative results are in `research/02-results.md`.
 
@@ -32,7 +33,7 @@ Model weights and audio are not in the repository.
 
 ## Run the reference runtime
 
-You need an exported graph. Export one from the SCNet-S checkpoint:
+You need an exported graph. Export one from a checkpoint and the config published with it (SCNet-S shown; for SCNet-L use its own config and `--chunk-samples 242550`, and pass the same value to `smets --chunk-samples`):
 
 ```sh
 python src/export_scnet_onnx.py \

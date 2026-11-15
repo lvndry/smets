@@ -9,8 +9,15 @@ All scores are plain whole-song SDR per stem, averaged over songs, on the 50 MUS
 | htdemucs (current Euphoria model) | 42M | 8.70 | 9.93 | 8.63 | 6.18 | 8.36 |
 | SCNet-S, 2x overlap | ~10M | 9.80 | 10.34 | 8.81 | 6.82 | 8.94 |
 | SCNet-S, no overlap | ~10M | 9.59 | 10.13 | 8.56 | 6.60 | 8.72 |
-| SCNet-L (config may not match checkpoint), 2x overlap | ~42M | 10.15 | 10.35 | 8.06 | 6.27 | 8.71 |
+| SCNet-L, wrong config (ignore), 2x overlap | ~42M | 10.15 | 10.35 | 8.06 | 6.27 | 8.71 |
+| SCNet-L (starrytong checkpoint, its own config), 11 s chunk, 2x overlap | ~42M | 10.88 | 11.07 | 9.31 | 7.24 | 9.62 |
+| SCNet-L, 11 s chunk, no overlap | ~42M | 10.71 | 10.88 | 9.10 | 7.05 | 9.44 |
+| SCNet-L, 8.25 s chunk, 2x overlap | ~42M | 10.82 | 11.02 | 9.24 | 7.19 | 9.57 |
+| SCNet-L, 5.5 s chunk, 2x overlap | ~42M | 10.66 | 10.80 | 9.05 | 7.10 | 9.41 |
+| SCNet-L, 5.5 s chunk, no overlap | ~42M | 10.41 | 10.55 | 8.74 | 6.85 | 9.14 |
 | SCNet XL IHF (teacher) | n/a | 11.42 | n/a | n/a | 7.88 | 10.09 |
+
+SCNet-L needs the config published with its checkpoint (`config_musdb18_scnet_large_starrytong.yaml` in the v1.0.9 release of Music-Source-Separation-Training); the earlier 8.71 used a different Large config. All rows above SCNet XL IHF are PyTorch with ZFTurbo's `valid.py`; the published figure for this checkpoint is 9.70 at 4x overlap.
 
 ## CPU cost, 7-minute stereo 44.1 kHz track, 8 threads, PyTorch fp32, server CPU
 
@@ -24,6 +31,17 @@ All scores are plain whole-song SDR per stem, averaged over songs, on the 50 MUS
 | SCNet XL IHF | default (4x) | 190.7 | 6.79 GB |
 
 SCNet XL IHF is about 18x slower than htdemucs and cannot ship; it is only a teacher.
+
+## SCNet-L cost, ONNX Runtime with the arena and memory pattern off
+
+Server CPU, 8 threads, one chunk (core plus one chunk, no audio buffers):
+
+| Chunk | Seconds per minute, no overlap | Peak memory |
+|---|---|---|
+| 11 s | 21.8 | 3.62 GB |
+| 5.5 s | 18.5 | 2.01 GB |
+
+The 5.5 s graph (`--chunk-samples 242550`, input `[1, 4, 2049, 238]`) run through the Rust runtime on the Mac, 4 threads, no overlap, 7-minute track: 31.9 s per minute, 2.82 GB maximum resident, 3.26 GB peak footprint. The same Mac and track with Euphoria's htdemucs: 39.7 s per minute, 2.43 GB. Peak memory includes about 0.75 GB of audio buffers that streaming the stems out would remove.
 
 ## ONNX export of SCNet-S (src/export_scnet_onnx.py)
 

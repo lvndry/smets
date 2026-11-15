@@ -3,7 +3,7 @@ use std::time::Instant;
 
 use clap::Parser;
 use smets::audio::{read_stereo, write_stereo};
-use smets::{STEM_NAMES, Separator};
+use smets::{DEFAULT_CHUNK_SAMPLES, STEM_NAMES, Separator};
 
 #[derive(Parser)]
 #[command(about = "Separate a 44.1 kHz stereo WAV file into drums, bass, other and vocals")]
@@ -18,13 +18,15 @@ struct Arguments {
     threads: usize,
     #[arg(long, default_value_t = 2)]
     overlap: usize,
+    #[arg(long, default_value_t = DEFAULT_CHUNK_SAMPLES)]
+    chunk_samples: usize,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let arguments = Arguments::parse();
     std::fs::create_dir_all(&arguments.output_directory)?;
     let [left, right] = read_stereo(&arguments.input)?;
-    let mut separator = Separator::load(&arguments.model, arguments.threads)?;
+    let mut separator = Separator::load(&arguments.model, arguments.threads, arguments.chunk_samples)?;
     let started = Instant::now();
     let stems = separator.separate(&left, &right, arguments.overlap)?;
     let seconds = left.len() as f64 / 44_100.0;

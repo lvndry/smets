@@ -9,41 +9,42 @@ use ort::value::Tensor;
 
 use crate::spectral::{BINS, HOP, Spectral, Spectrogram};
 
-pub const CHUNK_SAMPLES: usize = 485_100;
+pub const DEFAULT_CHUNK_SAMPLES: usize = 485_100;
 pub const SAMPLE_RATE: u32 = 44_100;
 pub const STEM_NAMES: [&str; 4] = ["drums", "bass", "other", "vocals"];
 
 pub type StemAudio = Vec<[Vec<f32>; 2]>;
 
 pub struct Separator {
+    chunk_samples: usize,
     _environment: Environment,
     session: Session,
     spectral: Spectral,
 }
 
-fn chunk_padding() -> usize {
-    let mut padding = HOP - CHUNK_SAMPLES % HOP;
-    if (CHUNK_SAMPLES + padding) / HOP % 2 == 0 {
+fn chunk_padding(chunk_samples: usize) -> usize {
+    let mut padding = HOP - chunk_samples % HOP;
+    if (chunk_samples + padding) / HOP % 2 == 0 {
         padding += HOP;
     }
     padding
 }
 
-fn blending_window() -> Vec<f32> {
-    (0..CHUNK_SAMPLES)
+fn blending_window(chunk_samples: usize) -> Vec<f32> {
+    (0..chunk_samples)
         .map(|index| {
-            let phase = 2.0 * std::f64::consts::PI * index as f64 / (CHUNK_SAMPLES - 1) as f64;
+            let phase = 2.0 * std::f64::consts::PI * index as f64 / (chunk_samples - 1) as f64;
             ((0.5 - 0.5 * phase.cos()) as f32).max(1e-3)
         })
         .collect()
 }
 
-fn chunk_starts(frames: usize, overlap: usize) -> Vec<usize> {
-    let step = CHUNK_SAMPLES / overlap;
-    let mut starts: Vec<usize> = (0..=frames.saturating_sub(CHUNK_SAMPLES)).step_by(step).collect();
+fn chunk_starts(frames: usize, overlap: usize, chunk_samples: usize) -> Vec<usize> {
+    let step = chunk_samples / overlap;
+    let mut starts: Vec<usize> = (0..=frames.saturating_sub(chunk_samples)).step_by(step).collect();
     if let Some(last) = starts.last() {
-        if last + CHUNK_SAMPLES < frames {
-            starts.push(frames - CHUNK_SAMPLES);
+        if last + chunk_samples < frames {
+            starts.push(frames - chunk_samples);
         }
     }
     starts
@@ -65,7 +66,7 @@ fn mean_and_deviation(left: &[f32], right: &[f32]) -> (f64, f64) {
 }
 
 impl Separator {
-    pub fn load(model_path: &Path, threads: usize) -> Result<Self, Box<dyn Error>> {
+    pub fn load(model_path: &Path, threads: usize, chunk_samples: usize) -> Result<Self, Box<dyn Error>> {
         let environment = ort::environment::init()
             .with_execution_providers([CPU::default().with_arena_allocator(false).build()])
             .build()?;
@@ -75,15 +76,15 @@ impl Separator {
             .with_memory_pattern(false)?
             .with_execution_providers([CPU::default().with_arena_allocator(false).build()])?
             .commit_from_file(model_path)?;
-        Ok(Self { _environment: environment, session, spectral: Spectral::new() })
+        Ok(Self { chunk_samples, _environment: environment, session, spectral: Spectral::new() })
     }
 
     fn run_chunk(&mut self, chunk: &[Vec<f32>; 2]) -> Result<Vec<[Vec<f32>; 2]>, Box<dyn Error>> {
-        let padding = chunk_padding();
+        let padding = chunk_padding(self.chunk_samples);
         let mut spectrograms: Vec<Spectrogram> = Vec::with_capacity(2);
         for channel in chunk {
             let mut padded = channel.clone();
-            padded.resize(CHUNK_SAMPLES + padding, 0.0);
+            padded.resize(self.chunk_samples + padding, 0.0);
             spectrograms.push(self.spectral.stft(&padded));
         }
         let frames = spectrograms[0].frames;
@@ -107,7 +108,7 @@ impl Separator {
                     imaginary: features[base + plane..base + 2 * plane].to_vec(),
                 };
                 let mut waveform = self.spectral.istft(&spectrogram);
-                waveform.truncate(CHUNK_SAMPLES);
+                waveform.truncate(self.chunk_samples);
                 *channel_slot = waveform;
             }
             stems.push(channels);
@@ -122,11 +123,12 @@ impl Separator {
             channel.iter().map(|value| ((*value as f64 - mean) / deviation) as f32).collect()
         };
         let normalised = [normalise(left), normalise(right)];
-        let window = blending_window();
+        let chunk_samples = self.chunk_samples;
+        let window = blending_window(chunk_samples);
         let mut output: StemAudio = (0..4).map(|_| [vec![0.0f32; frames], vec![0.0f32; frames]]).collect();
         let mut weight = vec![0.0f32; frames];
-        for start in chunk_starts(frames, overlap) {
-            let length = CHUNK_SAMPLES.min(frames - start);
+        for start in chunk_starts(frames, overlap, chunk_samples) {
+            let length = chunk_samples.min(frames - start);
             let chunk: [Vec<f32>; 2] = [
                 normalised[0][start..start + length].to_vec(),
                 normalised[1][start..start + length].to_vec(),

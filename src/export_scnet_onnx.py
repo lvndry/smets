@@ -101,6 +101,7 @@ def main():
     parser.add_argument("--config", required=True)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--chunk-samples", type=int, default=CHUNK_SAMPLES)
     arguments = parser.parse_args()
 
     sys.path.insert(0, arguments.zfturbo_directory)
@@ -112,7 +113,7 @@ def main():
     network.load_state_dict(torch.load(arguments.checkpoint, map_location="cpu"))
     core = ScnetCore(network).eval()
 
-    chunk = torch.randn(1, 2, CHUNK_SAMPLES) * 0.1
+    chunk = torch.randn(1, 2, arguments.chunk_samples) * 0.1
     with torch.no_grad():
         spectrum, padding = to_spectrum(network, chunk)
         original_features = core(spectrum)
