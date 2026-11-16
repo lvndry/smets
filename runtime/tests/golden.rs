@@ -17,8 +17,13 @@ fn matches_the_python_pipeline() {
     };
     let golden = PathBuf::from(golden);
     let [left, right] = read_stereo(&golden.join("excerpt.wav")).unwrap();
-    let mut separator = Separator::load(&PathBuf::from(model), 8, DEFAULT_CHUNK_SAMPLES).unwrap();
-    let stems = separator.separate(&left, &right, 0.5, true).unwrap();
+    let read_setting = |name: &str, default: &str| std::env::var(name).unwrap_or_else(|_| default.to_string());
+    let chunk_samples: usize = read_setting("STEMS_CHUNK_SAMPLES", &DEFAULT_CHUNK_SAMPLES.to_string()).parse().unwrap();
+    let hop_fraction: f64 = read_setting("STEMS_HOP", "0.5").parse().unwrap();
+    let normalise = read_setting("STEMS_NORMALISE", "1") == "1";
+    let threads: usize = read_setting("STEMS_THREADS", "4").parse().unwrap();
+    let mut separator = Separator::load(&PathBuf::from(model), threads, chunk_samples).unwrap();
+    let stems = separator.separate(&left, &right, hop_fraction, normalise).unwrap();
     for (name, channels) in STEM_NAMES.iter().zip(stems.iter()) {
         let [expected_left, expected_right] = read_stereo(&golden.join(format!("expected_{name}.wav"))).unwrap();
         let left_db = signal_to_error_db(&channels[0], &expected_left);

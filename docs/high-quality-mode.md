@@ -54,3 +54,14 @@ The ONNX graph is about 220 MB, comparable to htdemucs (about 170 MB). Half-prec
 - The weights licence is unresolved. The checkpoint was trained on MUSDB18-HQ, whose audio is research-only, and its authors state no weights licence. Same open question as htdemucs.
 - The checkpoint's own figure is probably the best epoch on MUSDB test, so the scores are somewhat optimistic.
 - No listening test, no per-genre numbers for XL, and no laptop measurement.
+
+## Measured on a Mac
+
+One Mac (10 cores, 4 performance cores, 24 GB), 4 threads at low priority, the same 7-minute stereo 44.1 kHz track, run back to back:
+
+| | Seconds per minute of audio | Peak resident memory |
+|---|---|---|
+| Euphoria htdemucs | 16.7 | 2,504 MB |
+| XL IHF through `smets`, 5.5 s chunks, hop 0.75, `--no-normalise` | 141.3 | 4,440 MB (peak footprint 5.2 GB) |
+
+About 8.5 times slower than htdemucs: a 4-minute track takes about 9.4 minutes. No swapping. Machine load rose from about 6 to 21 during the XL run, so the time is an upper bound. The memory includes about 0.75 GB of audio held for the whole track. The output of `smets` for XL matches the PyTorch reference to 41 to 52 dB signal-to-error on a 25 s excerpt.
