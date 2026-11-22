@@ -6,3 +6,4 @@ runtime/target/
 *.flac
 __pycache__/
 listening-test/
+.DS_Store
